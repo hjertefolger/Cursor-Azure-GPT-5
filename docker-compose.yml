@@ -1,0 +1,41 @@
+x-build-args: &build_args
+  INSTALL_PYTHON_VERSION: "3.13"
+
+x-default-volumes: &default_volumes
+  volumes:
+    - ./:/app
+
+services:
+  flask-dev:
+    build:
+      context: .
+      target: development
+      args:
+        <<: *build_args
+    image: "app-development"
+    ports:
+      - "8080:5000"
+    <<: *default_volumes
+
+  flask-prod:
+    build:
+      context: .
+      target: production
+      args:
+        <<: *build_args
+    image: "app-production"
+    ports:
+      - "8080:5000"
+    environment:
+      FLASK_ENV: production
+      FLASK_DEBUG: 0
+      LOG_LEVEL: info
+      GUNICORN_WORKERS: 4
+    <<: *default_volumes
+
+  manage:
+    entrypoint: flask
+    image: "app-development"
+    stdin_open: true
+    tty: true
+    <<: *default_volumes

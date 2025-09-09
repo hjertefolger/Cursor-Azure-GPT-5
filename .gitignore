@@ -1,0 +1,46 @@
+# Cache
+*.py[cod]
+__pycache__/
+.pytest_cache/
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+htmlcov/
+coverage.xml
+
+# Complexity
+output/*.html
+output/*/index.html
+
+# Virtualenvs
+env/
+.venv/
+
+# Configuration
+.env
+
+# Recordings
+recordings/
+
+# Legacy openai backend
+backend_openai.py

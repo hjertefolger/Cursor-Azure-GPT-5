@@ -43,4 +43,5 @@ env/
 recordings/
 
 # Legacy openai backend
-backend_openai.py
+backend_openai.pystart_with_tunnel.sh
+.run/
